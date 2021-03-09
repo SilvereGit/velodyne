@@ -1,26 +1,10 @@
 # Velodyne package for ROS-melodic  
 
-Velodyne_ is a collection of ROS_ packages supporting `Velodyne high
+* Velodyne_ is a collection of ROS_ packages supporting `Velodyne high
 definition 3D LIDARs`_.
 
-**Why this branch is needed (the problem 1)?**
+* The motivations behind building this page can be found (here)[https://silvereteam.atlassian.net/wiki/spaces/commondocs/pages/85852167/Velodyne+ROS-Melodic+package]
 
- Previously, ROS-Kinetic was the ROS distribution used in SLAM pipeline. Previous velodyne package is ROS-Kinetic compatible. However, ROS-Kinetics will be unsupproted starting from April 2021.
- Therefore, Migrating to ROS-Melodic is important. 
-
-**Why the current Kinetic package will not work on Melodic (the problem 2)?**
-
- Velodyne pakcage has a driver package which is OS related. ROS Kinetic and ROS Melodic can not work together because they are supported by different Linux versions ( 16.04 for Kinetic and 18.04 for Melodic).
-  
-
-**Why not directly install ROS-Melodic binary packages (the problem 3)?**
-
- The velodyne package for pointcloud manipulation has been changed from Kinetic to Melodic. Function signatures have been changed and some features have been Deprecated. Our ROS handling node (packets_to_points.cpp) in the pipeline depends on the function signatures in Kinetic Pointcloud package.
- Therefore, installing ALL Melodic related packages will breake (packets_to_points.cpp) node.
-
- **The solution**
-
-  Fortunately, velodyne pointcloud package does not depend on the underlying OS. Therefore, the binaries of Melodic velodyne driver package will be installed. Then velodyne point cloud package will be built from source (catkin tools) using the code in this repo.  
  
 ## Dependencies
   * [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) with ```rosdep``` installed.
